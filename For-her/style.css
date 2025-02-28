@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&family=Sansita:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&display=swap');
+*{
+    font-weight: 400;
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #d7a1e6, #b39ddb);
+}
+h1{
+    font-family: "Lovers Quarrel", cursive;
+    font-size: 3em;
+    color: #333;
+    font-weight: 700;
+}
+.title{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.timeline {
+    font-family: "Sansita", serif;
+    position: absolute;
+    top: 150px; 
+    left: 30px;
+    right: 30px;
+    height: 100vh;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+.container {
+    padding: 10px 40px 10px 0px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+.container.left {
+    left: 0;
+}
+.container.right {
+    left: 50%;
+}
+.date {
+    height: max-content;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border-radius: 6px;
+}
+.content {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.content.visible {
+    display: block; 
+    animation: showContent 2s forwards;
+}
+
+.content.hidden {
+    display: block;
+    animation: hideContent 1s forwards;
+}
+
+@keyframes showContent {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px; 
+    }
+}
+
+@keyframes hideContent {
+    from {
+        opacity: 1;
+        max-height: 500px; 
+    }
+    to {
+        opacity: 0;
+        max-height: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transform: rotate(-45deg); /* Centraliza o coração */
+    z-index: -1; /* Coloca a div atrás dos outros elementos */
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50px;
+}
